@@ -8,7 +8,7 @@ import org.jointheleague.ecolban.rpirobot.SimpleIRobot;
 
 public class MoveAndStopDemo extends IRobotAdapter {
 	Sonar sonar = new Sonar();
-	
+
 	public MoveAndStopDemo(IRobotInterface iRobot) {
 		super(iRobot);
 	}
@@ -18,33 +18,32 @@ public class MoveAndStopDemo extends IRobotAdapter {
 		IRobotInterface base = new SimpleIRobot();
 		MoveAndStopDemo rob = new MoveAndStopDemo(base);
 		rob.setup();
-		while(rob.loop()){}
+		while (rob.loop()) {
+		}
 		rob.shutDown();
-		
+
 	}
 
-	
-	
 	private void setup() throws Exception {
-		//driveDirect moves the robot
-		//the first parameter is the left wheel speed
-		//the second parameter is the right wheel speed
+		// driveDirect moves the robot
+		// the first parameter is the left wheel speed
+		// the second parameter is the right wheel speed
 		driveDirect(-500, 500);
-		
-		//sleep(int) pauses the program for the indicated amount of time
-		//time is in milliseconds (1000ms = 1s)
-		sleep(2000);
-		
-		//robot must explicitly be told to stop or else it will go forever
+
+		// sleep(int) pauses the program for the indicated amount of time
+		// time is in milliseconds (1000ms = 1s)
+		sleep(1500);
+
+		// robot must explicitly be told to stop or else it will go forever
 		driveDirect(0, 0);
 	}
-	
-	private boolean loop() throws Exception{
-		
+
+	private boolean loop() throws Exception {
+
 		return true;
 	}
-	
-	private void sleep(int amt){
+
+	private void sleep(int amt) {
 		try {
 			Thread.sleep(amt);
 		} catch (InterruptedException e) {
@@ -52,7 +51,7 @@ public class MoveAndStopDemo extends IRobotAdapter {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void shutDown() throws IOException {
 		reset();
 		stop();
